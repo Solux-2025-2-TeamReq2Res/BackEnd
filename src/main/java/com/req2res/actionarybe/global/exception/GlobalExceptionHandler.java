@@ -56,6 +56,7 @@ public class GlobalExceptionHandler {
     // 401: 아이디/비밀번호 불일치
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ApiResponse<Void>> handleBadCredentials(BadCredentialsException ex) {
+        ex.printStackTrace();
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(ApiResponse.fail("아이디 또는 비밀번호가 올바르지 않습니다."));
     }

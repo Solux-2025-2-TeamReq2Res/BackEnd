@@ -23,7 +23,7 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<LoginResponseDTO>> login(@Valid @RequestBody LoginRequestDTO req) {
         // 로그인 인증 (Security 내부가 비밀번호 비교함)
-        authManager.authenticate(
+        authManager.authenticate( //오류남
                 new UsernamePasswordAuthenticationToken(req.getLoginId(), req.getPassword())
         );
 
