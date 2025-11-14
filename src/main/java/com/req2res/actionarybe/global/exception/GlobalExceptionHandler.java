@@ -64,6 +64,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ConstraintViolationException.class)
     protected ResponseEntity<Response<?>> handleConstraintViolation(ConstraintViolationException ex) {
+        ex.printStackTrace();
         return new ResponseEntity<>(Response.fail("요청 값이 올바르지 않습니다."), HttpStatus.BAD_REQUEST);
     }
 
