@@ -1,5 +1,6 @@
 package com.req2res.actionarybe.domain.point.entity;
 
+import com.req2res.actionarybe.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
