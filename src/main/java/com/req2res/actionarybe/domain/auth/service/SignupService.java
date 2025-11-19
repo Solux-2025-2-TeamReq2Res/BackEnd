@@ -37,7 +37,7 @@ public class SignupService {
                 .phoneNumber(req.getPhoneNumber())
                 .email(req.getEmail())
                 .name(req.getName())
-                .nickname("랜덤닉네임_" + UUID.randomUUID().toString().substring(0, 8))
+                .nickname("action_" + UUID.randomUUID().toString().substring(0, 8))
                 .birthday(LocalDate.parse(req.getBirthday())) // 문자열 날짜 파싱
                 .build();
 

@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest  // 1. 스프링 서버를 실제로 띄운다 (모든 설정 로드)
-@Transactional   // 롤백
+//@Transactional   // 롤백
 class SignupServiceTest {
 
     @Autowired // 3. 실제 서비스와 리포지토리를 가져온다
