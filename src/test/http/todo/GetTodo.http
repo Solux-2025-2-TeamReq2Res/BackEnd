@@ -1,0 +1,16 @@
+### 특정 날짜 투두 목록 조회 (카테고리 없음)
+GET http://localhost:8080/api/todos?date=2025-11-19
+Content-Type: application/json
+
+### 특정 날짜 투두 목록 조회 (카테고리 포함)
+GET http://localhost:8080/api/todos?date=2025-10-31&categoryId=3
+Content-Type: application/json
+
+### 투두 수정 (제목 + 카테고리 변경)
+PATCH http://localhost:8080/api/todos/1
+Content-Type: application/json
+
+{
+  "title": "운영체제 과제하기 (수정)",
+  "categoryId": 4
+}

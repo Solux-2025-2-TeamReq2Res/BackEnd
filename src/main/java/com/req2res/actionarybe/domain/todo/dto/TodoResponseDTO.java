@@ -1,5 +1,5 @@
 package com.req2res.actionarybe.domain.todo.dto;
-//'특정 날짜 투두 목록 조회 API'에서 사용하는 개별 투두 response DTO
+//'특정 날짜 투두 목록 조회 API','투두 수정 API'에서 사용하는 개별 투두 response DTO
 
 import com.req2res.actionarybe.domain.todo.entity.Todo;
 import lombok.Builder;

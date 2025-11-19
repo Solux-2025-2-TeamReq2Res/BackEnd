@@ -22,6 +22,9 @@ public enum ErrorCode {
 	TODO_INVALID_TITLE(HttpStatus.BAD_REQUEST, "할 일 제목은 비어 있을 수 없습니다."),
 	TODO_INVALID_DATE(HttpStatus.BAD_REQUEST, "날짜 형식이 잘못되었습니다."),
 	TODO_CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND, "존재하지 않는 카테고리입니다."),
+	TODO_STATUS_CONFLICT(HttpStatus.CONFLICT, "이미 해당 상태로 처리된 투두입니다."),
+	TODO_INVALID_STATUS(HttpStatus.BAD_REQUEST, "status 값은 DONE 또는 FAILED만 허용됩니다."),
+	TODO_NOT_FOUND(HttpStatus.NOT_FOUND, "존재하지 않는 투두입니다."),
 
 	//user
 	EMAIL_DUPLICATED(HttpStatus.CONFLICT, "중복된 이메일입니다"),
