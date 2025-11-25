@@ -3,15 +3,9 @@ Content-Type: application/json
 
 {
   "loginId": "jaehyun99",
-  "password":"securePass!2025"
+  "password": "securePass!2025"
 }
 
 > {%
-    client.global.set("accessToken", response.body.data.accessToken);
-    client.global.set("refreshToken", response.body.data.refreshToken);
-
-    const accessToken = "Bearer " + client.global.get("accessToken");
-    console.log("Access Token:", accessToken);
-    const refreshToken = "Bearer " + client.global.get("refreshToken");
-    console.log("Refresh Token:", refreshToken);
+    client.global.set("accessToken", "Bearer " + response.body.data.accessToken);
 %}
