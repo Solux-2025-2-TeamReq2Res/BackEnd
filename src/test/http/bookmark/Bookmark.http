@@ -1,0 +1,21 @@
+###bookmark 생성 1
+POST http://localhost:8080/api/bookmarks
+Authorization: {{accessToken}}
+Content-Type: application/json
+
+{
+  "bookmarkName": "스노우보드",
+  "link": "https://snowboard.sookmyung.ac.kr/"
+}
+
+
+###bookmark 생성 2
+POST http://localhost:8080/api/bookmarks
+Authorization: {{accessToken}}
+Content-Type: application/json
+
+{
+  "bookmarkName": "백준",
+  "link": "https://www.acmicpc.net/problemset"
+}
+
