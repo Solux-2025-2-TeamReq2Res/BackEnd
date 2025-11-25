@@ -1,7 +1,10 @@
 package com.req2res.actionarybe.domain.bookmark.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.req2res.actionarybe.domain.bookmark.dto.BookmarkListResponseDto;
 import com.req2res.actionarybe.domain.bookmark.dto.BookmarkRequestDto;
 import com.req2res.actionarybe.domain.bookmark.dto.BookmarkResponseDto;
 import com.req2res.actionarybe.domain.bookmark.entity.Bookmark;
@@ -41,5 +44,15 @@ public class BookmarkService {
 		bookmarkRepository.save(bookmark);
 
 		return BookmarkResponseDto.from(bookmark);
+	}
+
+	public BookmarkListResponseDto getBookmarks(User user) {
+
+		List<Bookmark> bookmarks = this.findBookmarksByUser(user);
+		return BookmarkListResponseDto.from(bookmarks);
+	}
+
+	public List<Bookmark> findBookmarksByUser(User user) {
+		return bookmarkRepository.findAllByUser(user);
 	}
 }

@@ -19,3 +19,8 @@ Content-Type: application/json
   "link": "https://www.acmicpc.net/problemset"
 }
 
+
+###bookmark list 조회
+GET http://localhost:8080/api/bookmarks
+Authorization: {{accessToken}}
+Content-Type: application/json
