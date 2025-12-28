@@ -1,9 +1,9 @@
-package com.req2res.actionarybe.domain.user.service;
+package com.req2res.actionarybe.domain.member.service;
 
 import org.springframework.stereotype.Service;
 
-import com.req2res.actionarybe.domain.user.entity.User;
-import com.req2res.actionarybe.domain.user.repository.UserRepository;
+import com.req2res.actionarybe.domain.member.entity.User;
+import com.req2res.actionarybe.domain.member.repository.MemberRepository;
 import com.req2res.actionarybe.global.exception.CustomException;
 import com.req2res.actionarybe.global.exception.ErrorCode;
 
@@ -13,10 +13,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserService {
 
-	private final UserRepository userRepository;
+	private final MemberRepository memberRepository;
 
 	public User findUserByLoginId(String loginId) {
-		return userRepository.findByLoginId(loginId)
+		return memberRepository.findByLoginId(loginId)
 			.orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND));
 	}
 }
