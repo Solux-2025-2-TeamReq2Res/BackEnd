@@ -1,26 +1,25 @@
-package com.req2res.actionarybe.domain.auth.dto;
+package com.req2res.actionarybe.domain.auth.service;
 
 import com.req2res.actionarybe.domain.member.entity.Member;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.req2res.actionarybe.domain.member.repository.MemberRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.*;
+import org.springframework.stereotype.Service;
 
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class SignupResponseDTO {
+import java.util.List;
 
-    private Long userId;
-    private String loginId;
-    private String nickname;
+@Service
+@RequiredArgsConstructor
+public class CustomMemberDetailsService implements UserDetailsService {
+    private final MemberRepository memberRepository;
 
-    public static SignupResponseDTO from(Member member) {
-        return SignupResponseDTO.builder()
-                .userId(member.getId())
-                .loginId(member.getLoginId())
-                .nickname(member.getNickname())
-                .build();
+    @Override
+    public UserDetails loadUserByUsername(String loginId) throws UsernameNotFoundException {
+        Member u = memberRepository.findByLoginId(loginId)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return new org.springframework.security.core.userdetails.User(
+                u.getLoginId(), u.getPassword(), List.of(new SimpleGrantedAuthority("ROLE_USER"))
+        );
     }
 }

@@ -8,13 +8,13 @@ import java.time.LocalDate;
 
 
 @Entity
-@Table(name = "user",
-        indexes = { @Index(name="idx_user_login_id", columnList="loginId", unique = true),
-                @Index(name="idx_user_email", columnList="email", unique = true) })
+@Table(name = "member",
+        indexes = { @Index(name="idx_member_login_id", columnList="loginId", unique = true),
+                @Index(name="idx_member_email", columnList="email", unique = true) })
 //@EntityListeners(AuditingEntityListener.class)
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User extends Timestamped {
+public class Member extends Timestamped {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -52,8 +52,8 @@ public class User extends Timestamped {
     private Long badgeId;
 
     @Builder
-    public User(String loginId, String password, String name, String email,
-                String phoneNumber, LocalDate birthday, String imageUrl, String nickname, Long badgeId) {
+    public Member(String loginId, String password, String name, String email,
+                  String phoneNumber, LocalDate birthday, String imageUrl, String nickname, Long badgeId) {
         this.loginId = loginId;
         this.password = password;
         this.name = name;
